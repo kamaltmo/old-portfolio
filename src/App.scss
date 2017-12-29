@@ -1,3 +1,29 @@
+// Defaults Colors
+// $primary-color: #5755d9 !default;
+// $secondary-color: lighten($primary-color, 37.5%) !default;
+// $dark-color: #454d5d !default;
+// $light-color: #fff !default;
+// $success-color: #32b643 !default;
+// $warning-color: #ffb700 !default;
+// $error-color: #e85600 !default;
+// $code-color: #e06870 !default;
+// $highlight-color: #ffe9b3 !default;
+// $body-bg: $bg-color-light !default;
+
+//Dark Theme - Reset theme according to this https://github.com/picturepan2/spectre/blob/master/src/_variables.scss
+// $primary-color: #5755d9 !default;
+// $secondary-color: lighten($primary-color, 37.5%) !default;
+// $dark-color: #23272a!default;
+// $light-color: #2c2f33 !default;
+// $border-color: rgb(70, 70, 70);
+// $success-color: #32b643 !default;
+// $warning-color: #ffb700 !default;
+// $error-color: #e85600 !default;
+// $code-color: #e06870 !default;
+// $highlight-color: #ffe9b3 !default;
+// $body-bg: $bg-color-light !default;
+
+
 @import "node_modules/spectre.css/src/spectre";
 
 .App-logo {
@@ -11,5 +37,23 @@
 }
 
 .message-area {
-  height: 60vh
+  height: 60vh;
+}
+
+.message {
+  padding: 10px;
+  background: $bg-color-dark;
+  border-radius: 10px;
+}
+
+.messenger {
+  -webkit-box-shadow: -7px 18px 25px -5px rgba(0,0,0,0.26);
+  -moz-box-shadow: -7px 18px 25px -5px rgba(0,0,0,0.26);
+  box-shadow: -7px 18px 25px -5px rgba(0,0,0,0.26);
+  border-radius: 15px;
+}
+
+.input {
+  position: sticky;
+  bottom: 0;
 }

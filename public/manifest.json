@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Portfolio",
+  "name": "A chat bot that attempts to sell me so I dont have too",
   "icons": [
     {
       "src": "favicon.ico",
