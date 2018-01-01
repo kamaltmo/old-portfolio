@@ -23,7 +23,6 @@
 // $highlight-color: #ffe9b3 !default;
 // $body-bg: $bg-color-light !default;
 
-
 @import "node_modules/spectre.css/src/spectre";
 
 .App-logo {
@@ -42,7 +41,7 @@
 
 .message {
   padding: 10px;
-  background: $bg-color-dark;
+  background: darken($bg-color-dark, 5%);
   border-radius: 10px;
 }
 
@@ -51,6 +50,7 @@
   -moz-box-shadow: -7px 18px 25px -5px rgba(0,0,0,0.26);
   box-shadow: -7px 18px 25px -5px rgba(0,0,0,0.26);
   border-radius: 15px;
+  background: $bg-color;
 }
 
 .input {

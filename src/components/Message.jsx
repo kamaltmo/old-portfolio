@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Icon = ({ img }) => (
+const Icon = ({ img, repeat }) => (
   <div className="tile-icon">
-    <figure className="avatar avatar-lg">
+    <figure className="avatar avatar-lg" style={repeat ? { visibility: 'hidden' } : {}}>
       <img src={img} alt="Avatar" />
     </figure>
   </div>
@@ -10,19 +10,24 @@ const Icon = ({ img }) => (
 
 const Message = ({
   sender,
+  repeat,
   username,
   img,
-  children,
-}) => (
-  <div className="tile">
-    {sender && <Icon img={img} />}
-    <div className="tile-content">
-      <p className={`tile-title ${!sender && 'text-right'}`}>{username}</p>
-      <p className={`tile-subtitle message ${!sender && 'text-right'}`}>{children}</p>
+  text,
+}) => {
+  const borderStyle = sender ? { borderTopLeftRadius: '0' } : { borderTopRightRadius: '0' };
+
+  return (
+    <div className="tile">
+      {sender && <Icon img={img} repeat={repeat} />}
+      <div className="tile-content">
+        {!repeat && <p className={`tile-title ${!sender && 'text-right'}`}>{username}</p>}
+        <p className={`tile-subtitle message ${!sender && 'text-right'}`} style={borderStyle}>{text}</p>
+      </div>
+      {!sender && <Icon img={img} repeat={repeat} />}
     </div>
-    {!sender && <Icon img={img} />}
-  </div>
-);
+  );
+};
 
 
 export default Message;
