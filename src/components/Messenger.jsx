@@ -1,10 +1,11 @@
 import React from 'react';
 import Message from './Message';
+import Incoming from './Incoming';
 
 class Messenger extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { messages: [], text: '', incoming: true };
+    this.state = { messages: [], text: '', incoming: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -71,7 +72,7 @@ class Messenger extends React.Component {
               text={message.text}
             />
           ))}
-          {this.state.incoming && <p>...</p>}
+          {this.state.incoming && <Incoming />}
         </div>
         <div className="divider" />
         <div className="panel-footer input">
