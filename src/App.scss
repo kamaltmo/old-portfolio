@@ -11,7 +11,7 @@
 // $body-bg: $bg-color-light !default;
 
 //Dark Theme - Reset theme according to this https://github.com/picturepan2/spectre/blob/master/src/_variables.scss
-// $primary-color: #5755d9 !default;
+$primary-color: #0041db  !default;
 // $secondary-color: lighten($primary-color, 37.5%) !default;
 // $dark-color: #23272a!default;
 // $light-color: #2c2f33 !default;
@@ -41,8 +41,10 @@
 
 .message {
   padding: 10px;
-  background: darken($bg-color-dark, 5%);
+  background: transparentize($primary-color, 0.3);
+  color: $bg-color;
   border-radius: 10px;
+  display: inline-flex;
 }
 
 .messenger {
@@ -56,4 +58,47 @@
 .input {
   position: sticky;
   bottom: 0;
+}
+
+p {
+  margin: 0 0 0.5rem;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: -60%;
+  z-index: -1000;
+  transform: skew(30deg);
+
+  div {
+    position: fixed;
+  }
+}
+
+.one {
+  width: 100vw;
+  height: 100vh;
+  background: transparentize($primary-color, 0.6);
+}
+
+.two {
+  width: 95vw;
+  height: 100vh;
+  background: transparentize($primary-color, 0.3);
+}
+
+.three {
+  width: 90vw;
+  height: 100vh;
+  background: $primary-color;
+}
+
+.info {
+  color: white;
+  font-size: 3em;
+}
+
+.app {
+  margin: 20px;
 }

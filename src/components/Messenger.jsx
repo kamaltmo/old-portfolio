@@ -1,17 +1,32 @@
 import React from 'react';
 import Message from './Message';
 
-
 class Messenger extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { messages: [] };
+    this.state = { messages: [], text: '', incoming: true };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ text: e.target.value });
+  async getResponse(convoID, text) {
+    const res = await fetch(`http://localhost:4000/converation/${convoID}/send/${text}`);
+
+    const resMessages = await res.json();
+    const botMessages = [];
+
+    resMessages.map(message => (
+      botMessages.push({
+        text: message.content,
+        user: 'The Bot',
+        id: Date.now(),
+      })
+    ));
+
+    this.setState(prevState => ({
+      messages: [...prevState.messages, ...botMessages],
+      incoming: false,
+    }));
   }
 
   handleSubmit(e) {
@@ -28,8 +43,16 @@ class Messenger extends React.Component {
     this.setState(prevState => ({
       messages: prevState.messages.concat(userMessage),
       text: '',
+      incoming: true,
     }));
+
+    this.getResponse('1', userMessage.text);
   }
+
+  handleChange(e) {
+    this.setState({ text: e.target.value });
+  }
+
   render() {
     return (
       <div className="panel messenger">
@@ -48,11 +71,12 @@ class Messenger extends React.Component {
               text={message.text}
             />
           ))}
+          {this.state.incoming && <p>...</p>}
         </div>
         <div className="divider" />
         <div className="panel-footer input">
           <form className="input-group" onSubmit={this.handleSubmit}>
-            <input type="text" className="form-input" placeholder="User Message" onChange={this.handleChange} value={this.state.text} />
+            <input autoFocus type="text" className="form-input" placeholder="User Message" onChange={this.handleChange} value={this.state.text} />
             <button className="btn btn-primary input-group-btn">Send</button>
           </form>
         </div>
