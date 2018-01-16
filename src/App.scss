@@ -213,6 +213,10 @@ body {
   font-size: calc(0.95vw + 1.3px);
 }
 
+.mobileText {
+  font-size: 2.3vw;
+}
+
 .myText a:hover {
   color: white
 }
@@ -230,7 +234,20 @@ body {
   margin-bottom: 6px;
 }
 
+.modal.modal-lg .modal-overlay {
+  background: #1A1B1F;
+}
+
+.modal-container {
+  background: #1A1B1F;
+  color: white;
+}
+
 .modal-overlay {
   width: 100%;
   height: 100%;
+}
+
+.modal {
+  align-items: initial;
 }
