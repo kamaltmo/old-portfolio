@@ -4,7 +4,8 @@
         "react/prop-types": 0
     },
     "globals": {
-        "fetch": true
+        "fetch": true,
+        "document": true
     }
 
 }

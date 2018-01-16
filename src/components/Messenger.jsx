@@ -10,6 +10,11 @@ class Messenger extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    const lastMessage = document.getElementsByClassName('message')[document.getElementsByClassName('message').length - 1];
+    if (lastMessage) lastMessage.scrollIntoView();
+  }
+
   async getResponse(convoID, text) {
     const res = await fetch(`http://localhost:4000/converation/${convoID}/send/${text}`);
 
@@ -62,6 +67,12 @@ class Messenger extends React.Component {
         </div>
         <div className="divider" />
         <div className="panel-body message-area">
+          <Message
+            key="OG"
+            username="The Bot"
+            img="/favicon.ico"
+            text="Hello! Welcome to Kamal's website, Im here to assist you :)"
+          />
           {this.state.messages.map((message, i) => (
             <Message
               key={message.id}

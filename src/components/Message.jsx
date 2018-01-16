@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Icon = ({ img, repeat }) => (
+const Icon = ({ img, repeat, bot }) => (
   <div className="tile-icon">
     <figure className="avatar avatar-lg" style={repeat ? { visibility: 'hidden' } : {}}>
-      <img src={img} alt="Avatar" />
+      { bot ? <div id="ball"> <div id="eye" /> </div> : <img src={img} alt="Avatar" /> }
     </figure>
   </div>
 );
@@ -24,7 +24,7 @@ const Message = ({
         {!repeat && <p className={`tile-title ${!sender && 'text-right'}`}>{username}</p>}
         <p className="tile-subtitle message" style={borderStyle}>{text}</p>
       </div>
-      {!sender && <Icon img={img} repeat={repeat} />}
+      {!sender && <Icon img={img} repeat={repeat} bot />}
     </div>
   );
 };
