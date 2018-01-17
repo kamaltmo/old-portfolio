@@ -1,4 +1,5 @@
 import React from 'react';
+import Social from './Social';
 
 class Overlay extends React.Component {
   constructor(props) {
@@ -30,10 +31,7 @@ class Overlay extends React.Component {
                     <h1 className="eyntk-r1">Kamal Osman</h1>
                     <h1 className="eyntk-r2">SOFTWARE DEVELOPER | ASK ABOUT ME:</h1>
                   </div>
-                  <a href="https://twitter.com/_kamaltmo" className="fa fa-twitter" />
-                  <a href="https://www.instagram.com/_kamaltm/" className="fa fa-instagram" />
-                  <a href="https://www.linkedin.com/in/kamal-osman-53191989/" className="fa fa-linkedin" />
-                  <a href="https://github.com/kamaltmo" className="fa fa-github" />
+                  <Social />
                 </div>
               </div>
             </div>

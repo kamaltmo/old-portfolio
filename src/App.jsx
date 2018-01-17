@@ -1,16 +1,12 @@
 import React from 'react';
-import './App.css';
+import Background from './components/Background';
 import Messenger from './components/Messenger';
 import Nav from './components/Nav';
-
+import './App.css';
 
 const App = ({ bot, id }) => (
   <div className="app">
-    <div className="background">
-      <div className="one" />
-      <div className="two" />
-      <div className="three" />
-    </div>
+    <Background />
     <div className="container pt-2">
       <div className="columns">
         <Nav />
