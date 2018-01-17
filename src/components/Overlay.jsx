@@ -14,17 +14,15 @@ class Overlay extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <button onClick={this.handleClick} className="burger">
-          <div className="burgerLine" />
-          <div className="burgerLine" />
-          <div className="burgerLine" />
+        <button onClick={this.handleClick} className={`hamburger hamburger--emphatic ${this.state.open ? 'is-active' : ''}`} type="button">
+          <span className="hamburger-box">
+            <span className="hamburger-inner" />
+          </span>
         </button>
         <div className={`modal modal-lg modal-overlay ${this.state.open ? 'active' : ''}`} id="modal-id">
           <button onClick={this.handleClick} className="modal-overlay" aria-label="Close" />
           <div className="modal-container">
-            <div className="modal-header">
-              <button onClick={this.handleClick} className="btn btn-clear float-left" />
-            </div>
+            <div className="modal-header" />
             <div className="modal-body">
               <div className="content" >
                 <div className="mobileText column col-12">
